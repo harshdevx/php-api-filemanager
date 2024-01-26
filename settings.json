@@ -1,0 +1,31 @@
+{
+    "path": "token,files",
+    "secret_key": "j*F>QHsi7GLFUqXU+_VC(IEh++hePyL=#CxblL^^q^dM8BC?tPQ%sFb0KF04lQlJ",
+    "domain_name": "test.abc.com",
+    "users": {
+        "admin": "$2a$10$Q9lNXEQm6Okqe6d/6j28OeBFr8zzeVhBEbG28wRXbIc9KHTzST5ri"
+    },
+    "info": {
+        "files": {
+            "no_items": {"message": "no files in the storage"},
+            "upload_success": {"message": "file uploaded successfully"},
+            "delete_success": {"message": "file deleted successfully"}
+        }
+    },
+    "errors": {
+        "request_content_type": {"message": "content type must be application/json"},
+        "files": {
+            "exists": {"message": "file already exits"},
+            "upload_failed": {"message": "file upload failed"},
+            "delete_failed": {"message": "file delete failed"},
+            "not_allowed": {"message": "file type not allowed"},
+            "not_exists": {"message": "resource does not exists"}
+        },
+        "users": {
+            "request_password_mismatch": {"message": "password or username mismatch"}
+        }
+        
+    },
+    "storage_location": "data",
+    "allowed_types": "aab,pdf,png,svg,ipa"
+}
