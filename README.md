@@ -45,7 +45,7 @@ url = "https://test.abc.com/files"
 
 payload={}
 files=[
-  ('file',('qp.png',open('/Users/test/Downloads/1.png','rb'),'image/png'))
+  ('file',('1.png',open('/Users/test/Downloads/1.png','rb'),'image/png'))
 ]
 headers = {
   'Authorization': 'Bearer <TOKEN>'
