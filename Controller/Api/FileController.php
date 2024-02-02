@@ -48,15 +48,14 @@ class FileController extends BaseController
         $files = json_decode(file_get_contents($db_file_path));
         $allowed_types = explode(",", $settings_json->allowed_types);
 
-        $file_ext = strtolower(end(explode(".", $FILE['file']['name'])));
+        $file_ext = strtolower(strstr(pathinfo($FILE['file']['full_path'])['basename'], '.'));
         $file_uuid = Uuid::uuid4()->toString();
         $file_name = sha1($file_uuid);
-        $file_path = PROJECT_ROOT_PATH . $settings_json->storage_location . '/' . $file_name . '.' . $file_ext;
+        $file_path = PROJECT_ROOT_PATH . $settings_json->storage_location . '/' . $file_name . $file_ext;
 
         if (($FILE['file']['error'] == 0) && isset($file_ext) &&
             (in_array($file_ext, $allowed_types))) 
         {
-
             foreach ($files as $file)
             {
                 if ($file->file_hash == sha1_file($FILE['file']['tmp_name'])) 
@@ -71,7 +70,7 @@ class FileController extends BaseController
             {
                 $file = new stdClass();
                 $file->file_hash = sha1_file($file_path);
-                $file->file_name = $file_name . '.' . $file_ext;
+                $file->file_name = $file_name . $file_ext;
 
                 $files->$file_uuid = $file;
 
